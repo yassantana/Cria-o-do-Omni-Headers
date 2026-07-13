@@ -1,98 +1,100 @@
 # Omni Headers
 
-Site institucional **Omni Headers** — projeto independente, do zero, em **React + Vite + TypeScript**.
+Landing Page oficial do **Omni Headers**, desenvolvida em React, TypeScript e Vite.
 
-> Esta etapa entrega apenas a **arquitetura** do projeto. Nenhuma pagina foi desenvolvida ainda.
+O projeto foi criado para apresentar a plataforma Omni Headers através de uma experiência totalmente interativa, simulando o funcionamento real do sistema ao invés de utilizar apenas imagens estáticas.
 
 ---
 
-## Stack
+## Sobre o projeto
 
-| Camada | Tecnologia |
-| --- | --- |
-| Build / Dev server | Vite 6 |
-| UI | React 18 + TypeScript 5.7 |
-| Roteamento | react-router-dom 6 |
-| Estilos | CSS moderno com design tokens (CSS variables) |
-| Lint / Format | ESLint 9 (flat config) + Prettier |
-| Testes | Vitest + Testing Library + jsdom |
+O objetivo desta landing page é demonstrar, de forma visual e dinâmica, como funciona a operação do Omni Headers, permitindo que potenciais clientes entendam o produto antes mesmo da demonstração comercial.
 
-## Como rodar
+A experiência simula situações reais de atendimento omnichannel, utilização da Captain IA, integrações com sistemas externos e colaboração entre equipes.
 
-Requisitos: **Node >= 18.18** (recomendado 20, ver `.nvmrc`).
+---
+
+## Principais funcionalidades
+
+- Hero totalmente interativo
+- Simulação de atendimento omnichannel
+- Demonstrações da Captain IA
+- Integrações com CRM, ERP e APIs
+- Atendimento colaborativo
+- Dashboard operacional
+- Simulação de crescimento da operação
+- CTA para solicitação de demonstração
+- Integração com WhatsApp
+- Interface responsiva
+- Animações otimizadas
+- Design System próprio
+
+---
+
+## Tecnologias
+
+- React 18
+- TypeScript
+- Vite
+- CSS Modules
+- Framer Motion
+- React Router
+
+---
+
+## Executando o projeto
 
 ```bash
-npm install      # instala as dependencias
-npm run dev      # ambiente de desenvolvimento (http://localhost:5180)
-npm run build    # type-check + build de producao
-npm run preview  # serve o build
+npm install
+npm run dev
 ```
 
-Scripts auxiliares:
+Build de produção:
 
 ```bash
-npm run lint         # ESLint
-npm run format       # Prettier (write)
-npm run typecheck    # TypeScript sem emitir
-npm test             # Vitest (run unico)
-npm run test:watch   # Vitest em modo watch
+npm run build
 ```
 
-## Estrutura de pastas
+Preview:
 
-```
-omni_headers/
-├─ public/                 # estaticos servidos como /  (favicon, robots...)
-├─ src/
-│  ├─ assets/              # imagens, icones e fontes importados no bundle
-│  ├─ components/          # UI reutilizavel e agnostica de contexto
-│  │  ├─ ui/               #   primitivos visuais (Button, Input...)
-│  │  ├─ layout/           #   estrutura (Container, Header, Footer...)
-│  │  └─ common/           #   compostos compartilhados (Logo...)
-│  ├─ sections/            # blocos de pagina (Hero, Features, CTA...)
-│  ├─ pages/               # rotas completas que orquestram secoes
-│  ├─ hooks/               # hooks customizados reutilizaveis
-│  ├─ data/                # conteudo estatico / config do site
-│  ├─ router/              # mapa de rotas e configuracao de navegacao
-│  ├─ constants/           # constantes globais
-│  ├─ types/               # tipos TypeScript compartilhados
-│  ├─ utils/               # funcoes utilitarias puras
-│  ├─ styles/              # tokens.css, reset.css, global.css
-│  ├─ test/                # setup de testes (Vitest)
-│  ├─ App.tsx              # shell raiz da aplicacao
-│  └─ main.tsx             # ponto de entrada (React + Router)
-├─ index.html
-├─ vite.config.ts
-├─ tsconfig*.json
-├─ eslint.config.js
-└─ .prettierrc.json
+```bash
+npm run preview
 ```
 
-## Aliases de import
+---
 
-Configurados em `vite.config.ts` e `tsconfig.app.json`:
+## Estrutura
 
-| Alias | Caminho |
-| --- | --- |
-| `@/*` | `src/*` |
-| `@components/*` | `src/components/*` |
-| `@sections/*` | `src/sections/*` |
-| `@pages/*` | `src/pages/*` |
-| `@hooks/*` | `src/hooks/*` |
-| `@assets/*` | `src/assets/*` |
-| `@data/*` | `src/data/*` |
-| `@styles/*` | `src/styles/*` |
-| `@utils/*` | `src/utils/*` |
-| `@router/*` | `src/router/*` |
-| `@constants/*` | `src/constants/*` |
-| `@app-types/*` | `src/types/*` |
+```
+src/
+ ├── components/
+ ├── sections/
+ ├── pages/
+ ├── hooks/
+ ├── data/
+ ├── styles/
+ ├── router/
+ └── assets/
+```
 
-> Use `@app-types` (e nao `@types`) para evitar conflito com o diretorio do DefinitelyTyped.
+---
 
-## Convencoes
+## Objetivo
 
-- **Componentes**: arquivos `PascalCase.tsx`; um componente por pasta quando houver estilos/co-locacao.
-- **Utilitarios/hooks**: `camelCase.ts`.
-- **Barrels** (`index.ts`) em cada camada para imports limpos.
-- **Estilos**: consuma sempre os tokens via `var(--token)`; evite valores hard-coded.
-- **Sem strings de conteudo soltas** nos componentes — centralize em `src/data`.
+Mais do que uma landing page, este projeto busca demonstrar o funcionamento real do Omni Headers através de uma experiência imersiva, aproximando o visitante da utilização da plataforma antes mesmo da primeira demonstração comercial.
+
+---
+
+## Status
+
+🚧 Em evolução contínua.
+
+Novas melhorias de UX, animações e funcionalidades continuam sendo desenvolvidas.
+
+---
+
+## Desenvolvido por
+
+**Yasmin Santana**
+
+Projeto desenvolvido utilizando React + TypeScript + Vite em colaboração com ferramentas de IA durante o processo de concepção, design e implementação.
