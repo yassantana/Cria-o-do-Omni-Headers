@@ -1,0 +1,8 @@
+.head {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  margin-inline: auto;
+}
+.visual {
+  display: grid;
+  place-items: center;
+}

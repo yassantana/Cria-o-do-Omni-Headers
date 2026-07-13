@@ -1,0 +1,113 @@
+.layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-6);
+  align-items: stretch;
+}
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all var(--t-base);
+}
+.tab:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.tabActive {
+  color: var(--text);
+  border-color: var(--brand-400);
+  background: rgba(19, 102, 224, 0.08);
+}
+.tabIcon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--brand-500);
+  background: var(--surface-2);
+}
+.tabActive .tabIcon {
+  color: #fff;
+  background: var(--grad-brand);
+}
+.tabChevron {
+  margin-left: auto;
+  color: var(--text-subtle);
+  opacity: 0;
+  transition: opacity var(--t-base);
+}
+.tabActive .tabChevron {
+  opacity: 1;
+  color: var(--brand-500);
+}
+
+.panel {
+  display: flex;
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 80% 0%, rgba(110, 86, 247, 0.12), transparent 55%), var(--surface);
+  border: 1px solid var(--border-strong);
+  overflow: hidden;
+}
+.panelInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-10);
+  justify-content: center;
+}
+.panelIcon {
+  width: 68px;
+  height: 68px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  color: #fff;
+  background: var(--grad-brand);
+  box-shadow: var(--glow-brand);
+}
+.panelTitle {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+.panelGain {
+  font-size: var(--text-lg);
+  color: var(--text-muted);
+  line-height: var(--leading-relaxed);
+  max-width: 38ch;
+}
+.panelTags {
+  display: flex;
+  gap: var(--space-2);
+}
+.panelTag {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--brand-500);
+  padding: 0.3rem 0.7rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+}
+
+@media (max-width: 880px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .panel {
+    min-height: 220px;
+  }
+}

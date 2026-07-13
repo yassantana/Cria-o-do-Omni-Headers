@@ -1,0 +1,30 @@
+.flowWrap {
+  padding: var(--space-10) var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background-image:
+    radial-gradient(circle at 50% 120%, rgba(19, 102, 224, 0.1), transparent 60%), var(--grad-surface);
+  overflow-x: auto;
+}
+.perks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+.perk {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.55rem 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+}
+.perk :global(svg) {
+  color: var(--success);
+}

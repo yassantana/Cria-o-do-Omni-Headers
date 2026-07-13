@@ -1,0 +1,416 @@
+/* ─── Force light appearance ─── */
+.scene {
+  color-scheme: light;
+  --ob:   #ffffff;
+  --osb:  #f8f9fb;
+  --obr:  #e5e7eb;
+  --obrl: #f3f4f6;
+  --obt:  #111827;
+  --obt2: #4b5563;
+  --obt3: #9ca3af;
+  --obl:  #1f93ff;
+  --obla: rgba(59, 130, 246, 0.08);
+  --oblt: #1d4ed8;
+  --obbg: #ede9fe;
+  --obbt: #6d28d9;
+  --obg:  #059669;
+
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ─── Main 3-column inbox ─── */
+.inbox {
+  display: grid;
+  grid-template-columns: 120px 205px 1fr;
+  height: 450px;
+  background: var(--ob);
+  border: 1px solid var(--obr);
+  border-radius: 12px;
+  box-shadow:
+    0 4px 6px -1px rgba(0,0,0,0.07),
+    0 12px 40px -4px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(0,0,0,0.03);
+  overflow: hidden;
+}
+
+/* ══════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════ */
+.sb {
+  background: var(--osb);
+  border-right: 1px solid var(--obr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 0 10px;
+  gap: 6px;
+  overflow: hidden;
+}
+.sbSep {
+  width: 32px;
+  height: 1px;
+  background: var(--obr);
+  margin: 2px 0;
+  flex-shrink: 0;
+}
+.sbBtn {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  color: var(--obt3);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+/* Active sidebar item — blue (Hero standard) */
+.sbActive {
+  background: var(--obla);
+  color: var(--obl);
+}
+
+/* Channel icons in sidebar */
+.sbChs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  overflow: hidden;
+}
+.sbCh {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  color: var(--obt3);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--obr);
+}
+.sbChWa {
+  background: rgba(37, 211, 102, 0.1);
+  color: #16a34a;
+  border-color: rgba(37, 211, 102, 0.2);
+}
+
+/* Agent avatars pushed to bottom */
+.sbAgts {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+.sbAgt {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.42rem;
+  font-weight: 800;
+  color: #fff;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  border: 2px solid var(--ob);
+}
+/* IA avatar — purple */
+.sbIa {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.7rem;
+  color: var(--obbt);
+  background: var(--obbg);
+  border: 2px solid var(--ob);
+  box-shadow: 0 0 8px rgba(109, 40, 217, 0.25);
+}
+
+/* ══════════════════════════════════════
+   CONVERSATION LIST
+══════════════════════════════════════ */
+.lst {
+  border-right: 1px solid var(--obr);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--ob);
+}
+.lstHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 9px;
+  border-bottom: 1px solid var(--obr);
+  flex-shrink: 0;
+}
+.lstTitle {
+  font-weight: 700;
+  font-size: 12.5px;
+  color: var(--obt);
+}
+/* Count badge — blue (not IA) */
+.lstBadge {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--obl);
+  background: var(--obla);
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+}
+
+.lstBody {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.lstBody::-webkit-scrollbar { display: none; }
+
+.lstEmpty {
+  display: block;
+  padding: 20px 12px;
+  font-size: 12px;
+  color: var(--obt3);
+}
+
+.lstRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--obrl);
+  cursor: pointer;
+}
+.lstRow:hover {
+  background: rgba(0, 0, 0, 0.015);
+}
+
+/* Avatar with channel badge */
+.lstAvt {
+  position: relative;
+  width: 33px;
+  height: 33px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 0.54rem;
+  font-weight: 800;
+  color: #fff;
+  font-family: var(--font-mono);
+}
+.lstAvtCh {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 13px;
+  height: 13px;
+  display: grid;
+  place-items: center;
+  background: var(--ob);
+  border-radius: 50%;
+  border: 1.5px solid var(--ob);
+}
+
+.lstInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.lstName {
+  font-weight: 600;
+  font-size: 12.5px;
+  color: var(--obt);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lstPrev {
+  font-size: 11.5px;
+  color: var(--obt3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* IA badge in list — purple */
+.lstIaBadge {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--obbt);
+  background: rgba(109, 40, 217, 0.1);
+  padding: 2px 5px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.lstAgtBadge {
+  font-size: 8px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════
+   DETAIL — metrics overview
+══════════════════════════════════════ */
+.det {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--ob);
+}
+.detHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--obr);
+  flex-shrink: 0;
+}
+.detTitle {
+  font-weight: 700;
+  font-size: 12.5px;
+  color: var(--obt);
+}
+.detLive {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--obg);
+}
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--obg);
+  animation: pulse-live 1.4s ease-in-out infinite;
+}
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+.detEmpty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--obt3);
+  padding: 24px;
+  text-align: center;
+}
+
+/* 2 × 2 KPI grid */
+.metGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--obr);
+  flex-shrink: 0;
+}
+.met {
+  background: var(--ob);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.metVal {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--obt);
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  min-height: 1.3rem;
+}
+.metNum { }
+.metDim {
+  font-size: 1rem;
+  color: var(--obt3);
+  font-weight: 400;
+}
+.metLabel {
+  font-size: 9.5px;
+  color: var(--obt3);
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+/* Active channels row */
+.metChs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--obr);
+  flex-shrink: 0;
+}
+.metChsLabel {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--obt3);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.metChsRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.metCh {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  border: 1px solid var(--obr);
+  background: var(--osb);
+}
+
+/* Closing line — IA purple theme */
+.metClosing {
+  margin: auto 16px 14px;
+  padding: 10px 14px;
+  background: rgba(109, 40, 217, 0.05);
+  border: 1px solid rgba(109, 40, 217, 0.15);
+  border-radius: 7px;
+  font-size: 12px;
+  color: var(--obt2);
+  line-height: 1.5;
+}
+.metClosing strong {
+  color: var(--obt);
+  font-weight: 700;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 760px) {
+  .inbox {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .sb, .lst { display: none; }
+  .det       { min-height: 280px; }
+}

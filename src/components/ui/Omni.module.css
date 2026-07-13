@@ -1,0 +1,153 @@
+/* ─── Backdrop ────────────────────────────────────────────────────────────── */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 498;
+  cursor: default;
+}
+
+/* ─── FAB wrapper ─────────────────────────────────────────────────────────── */
+
+.fabWrap {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 500;
+}
+
+/* ─── FAB button ──────────────────────────────────────────────────────────── */
+
+.fab {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: #1f93ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 2px 8px rgba(31, 147, 255, 0.28),
+    0 8px 24px rgba(31, 147, 255, 0.16);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  animation: omni-breathe 4.2s ease-in-out infinite;
+}
+
+.fab:hover {
+  transform: scale(1.07);
+  box-shadow:
+    0 4px 12px rgba(31, 147, 255, 0.34),
+    0 12px 32px rgba(31, 147, 255, 0.22);
+  animation-play-state: paused;
+}
+
+.fab:active {
+  transform: scale(0.95);
+  animation-play-state: paused;
+}
+
+.fabOpen {
+  animation-play-state: paused;
+}
+
+@keyframes omni-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.026); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fab {
+    animation: none;
+  }
+}
+
+/* ─── Eyes (SVG groups) ───────────────────────────────────────────────────── */
+
+.eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.08s ease;
+}
+
+/* ─── CTA card ────────────────────────────────────────────────────────────── */
+
+.card {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  width: 228px;
+  z-index: 500;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.06),
+    0 16px 40px -6px rgba(0, 0, 0, 0.12);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color-scheme: light;
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+
+.primary {
+  display: block;
+  padding: 10px 14px;
+  background: #1f93ff;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 9px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.14s;
+}
+
+.primary:hover {
+  background: #1a7ee0;
+}
+
+.secondary {
+  display: block;
+  padding: 9px 14px;
+  background: none;
+  color: #374151;
+  font-size: 13px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.secondary:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+/* ─── Mobile ──────────────────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .fabWrap {
+    bottom: 20px;
+    right: 16px;
+  }
+
+  .card {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 18px 18px 0 0;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    padding: 20px 20px 32px;
+  }
+}

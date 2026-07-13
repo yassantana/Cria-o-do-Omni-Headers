@@ -1,0 +1,117 @@
+.card {
+  width: 100%;
+  max-width: 380px;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid rgba(110, 86, 247, 0.35);
+  box-shadow: var(--glow-iris);
+}
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--grad-iris);
+}
+.name {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+.role {
+  font-size: var(--text-xs);
+  color: var(--text-subtle);
+}
+.live {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--iris-500);
+}
+.live i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--iris-400);
+  animation: pulse-soft 1s ease-in-out infinite;
+}
+.context {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  padding: 0.5rem 0.7rem;
+  background: var(--surface-3);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-3);
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-subtle);
+}
+.suggestion {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: rgba(110, 86, 247, 0.12);
+  border: 1px solid rgba(110, 86, 247, 0.3);
+  min-height: 84px;
+}
+.sugLabel {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--iris-500);
+}
+.sugText {
+  margin-top: 6px;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--text);
+}
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  background: var(--iris-400);
+  animation: blink-caret 1s step-end infinite;
+}
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.45rem 0.9rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: #fff;
+  background: var(--grad-iris);
+  border-radius: var(--radius-full);
+}
+.ghost {
+  padding: 0.45rem 0.9rem;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+}

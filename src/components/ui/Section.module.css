@@ -1,0 +1,19 @@
+.section {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+  overflow: clip;
+}
+.elevated {
+  background: var(--bg-elevated);
+  border-block: 1px solid var(--border-subtle);
+}
+.decoration {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.body {
+  position: relative;
+  z-index: 1;
+}

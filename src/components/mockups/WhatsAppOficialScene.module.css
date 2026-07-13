@@ -1,0 +1,489 @@
+/* ─── Force light appearance regardless of system theme ─── */
+.scene {
+  color-scheme: light;
+  --ob:   #ffffff;
+  --osb:  #f8f9fb;
+  --obr:  #e5e7eb;
+  --obrl: #f3f4f6;
+  --obt:  #111827;
+  --obt2: #4b5563;
+  --obt3: #9ca3af;
+  --obl:  #1f93ff;
+  --obla: rgba(59, 130, 246, 0.08);
+  --oblt: #1d4ed8;
+  --obbg: #ede9fe;
+  --obbt: #6d28d9;
+  --obg:  #059669;
+  --wag:  #25d366;   /* whatsapp green */
+
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  max-width: 900px;
+  margin-inline: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ─── Column labels ─── */
+.colLabel {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--obt2);
+  font-family: var(--font-mono);
+}
+.colSub {
+  font-size: 0.58rem;
+  color: var(--obt3);
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════
+   LEFT — Phone column
+═══════════════════════════════════════════ */
+.phoneCol {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.phone {
+  position: relative;
+  width: 172px;
+  height: 332px;
+  padding: 8px;
+  border-radius: 26px;
+  background: linear-gradient(160deg, #1d2642, #0c1122);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 0, 0, 0.6);
+}
+.notch {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62px;
+  height: 12px;
+  border-radius: 999px;
+  background: #060a14;
+  z-index: 3;
+}
+.screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #dfe7ec;
+  display: flex;
+  flex-direction: column;
+}
+
+/* WhatsApp header */
+.waHead {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 1.3rem 10px 8px;
+  background: var(--wag);
+  color: #fff;
+  flex-shrink: 0;
+}
+.waAvatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.65rem;
+  color: var(--wag);
+  background: #fff;
+  flex-shrink: 0;
+}
+.waName {
+  font-weight: 700;
+  font-size: 0.64rem;
+  line-height: 1.2;
+}
+.waTick {
+  color: #90ee90;
+  font-size: 0.65rem;
+}
+.waSub {
+  font-size: 0.48rem;
+  opacity: 0.9;
+}
+.waGlyph {
+  margin-left: auto;
+  opacity: 0.85;
+  color: #fff;
+  display: grid;
+  place-items: center;
+}
+
+/* WhatsApp message body */
+.waBody {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 9px 8px;
+  scrollbar-width: none;
+}
+.waBody::-webkit-scrollbar { display: none; }
+
+.waBbl {
+  max-width: 82%;
+  padding: 5px 8px;
+  border-radius: 8px;
+  font-size: 0.6rem;
+  line-height: 1.35;
+  color: var(--obt);
+}
+.waIn {
+  align-self: flex-start;
+  background: #fff;
+  border-top-left-radius: 2px;
+}
+.waOut {
+  align-self: flex-end;
+  background: #d9fdd3;
+  border-top-right-radius: 2px;
+}
+
+/* ═══════════════════════════════════════════
+   RIGHT — Inbox column
+═══════════════════════════════════════════ */
+.inboxCol {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.inbox {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 105px 188px 1fr;
+  height: 384px;
+  background: var(--ob);
+  border: 1px solid var(--obr);
+  border-radius: 10px;
+  box-shadow:
+    0 4px 6px -1px rgba(0,0,0,0.07),
+    0 12px 40px -4px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(0,0,0,0.03);
+  overflow: hidden;
+}
+
+/* ── Sidebar ── */
+.sb {
+  background: var(--osb);
+  border-right: 1px solid var(--obr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 0 10px;
+  gap: 10px;
+}
+.sbSep {
+  width: 30px;
+  height: 1px;
+  background: var(--obr);
+  margin: 2px 0;
+}
+.sbIcon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: var(--obt3);
+}
+.sbIconWa {
+  background: rgba(37, 211, 102, 0.12);
+  color: #16a34a;
+}
+
+/* ── Conversation list ── */
+.lst {
+  border-right: 1px solid var(--obr);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--ob);
+}
+.lstHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 9px;
+  border-bottom: 1px solid var(--obr);
+  flex-shrink: 0;
+}
+.lstTitle {
+  font-weight: 700;
+  font-size: 12.5px;
+  color: var(--obt);
+}
+.lstVerified {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #16a34a;
+  background: #dcfce7;
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+.lstTick { font-size: 0.58rem; }
+
+.lstRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--obrl);
+  cursor: pointer;
+  border-left: 2.5px solid transparent;
+}
+.lstRow:hover { background: rgba(0,0,0,0.015); }
+.lstActive {
+  background: var(--obla);
+  border-left-color: var(--obl);
+}
+
+.lstAvt {
+  position: relative;
+  width: 33px;
+  height: 33px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 11px;
+  color: #fff;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+}
+.lstAvtCh {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 13px;
+  height: 13px;
+  display: grid;
+  place-items: center;
+  background: var(--ob);
+  border-radius: 50%;
+  border: 1.5px solid var(--ob);
+}
+.lstBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.lstName {
+  font-weight: 600;
+  font-size: 12.5px;
+  color: var(--obt);
+}
+.lstPreview {
+  font-size: 11.5px;
+  color: var(--obt3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Carol's agent badge — green */
+.lstAgent {
+  font-size: 8px;
+  font-weight: 700;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 2px 5px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* ── Detail panel ── */
+.det {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--ob);
+}
+.detHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--obr);
+  flex-shrink: 0;
+}
+.detName {
+  display: block;
+  font-weight: 700;
+  font-size: 12.5px;
+  color: var(--obt);
+  line-height: 1.2;
+}
+.detCh {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  color: var(--obt3);
+  margin-top: 2px;
+}
+/* Carol's agent badge in detail header — green */
+.detAgent {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #fff;
+  background: #10b981;
+  padding: 3px 9px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.detBody {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--obr) transparent;
+}
+.detBody::-webkit-scrollbar         { width: 4px; }
+.detBody::-webkit-scrollbar-track   { background: transparent; }
+.detBody::-webkit-scrollbar-thumb   { background: var(--obr); border-radius: 2px; }
+
+/* Messages */
+.msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 74%;
+}
+.msgIn {
+  align-self: flex-start;
+}
+.msgOut {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+/* Carol's name label in messages — green */
+.msgAgent {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #10b981;
+  margin-bottom: 2px;
+}
+.msgBbl {
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--obt);
+}
+.msgIn .msgBbl {
+  background: #f3f4f6;
+  border-radius: 0 8px 8px 8px;
+}
+/* Agent (Carol) outbound bubble — Hero agent style */
+.msgOut .msgBbl {
+  background: #eff6ff;
+  border-radius: 8px 0 8px 8px;
+}
+.msgTs {
+  font-size: 10px;
+  color: var(--obt3);
+  margin-top: 2px;
+}
+
+/* Captain IA suggestion — Hero bot bubble */
+.iaSuggest {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 7px 10px;
+  background: var(--obbg);
+  border: 1px solid rgba(109, 40, 217, 0.18);
+  border-radius: 7px;
+  align-self: stretch;
+}
+.iaLabel {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--obbt);
+  background: rgba(139, 92, 246, 0.15);
+  padding: 1px 6px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  width: fit-content;
+  letter-spacing: 0.02em;
+}
+.iaText {
+  font-size: 12px;
+  color: var(--obt2);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Reply footer */
+.detFoot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--obr);
+  flex-shrink: 0;
+}
+.detInput {
+  flex: 1;
+  font-size: 12px;
+  color: var(--obt3);
+  background: var(--osb);
+  border: 1px solid var(--obr);
+  border-radius: 5px;
+  padding: 5px 8px;
+}
+.detSend {
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--wag);
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 720px) {
+  .scene {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .inbox {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .sb, .lst { display: none; }
+  .det       { height: 280px; }
+}

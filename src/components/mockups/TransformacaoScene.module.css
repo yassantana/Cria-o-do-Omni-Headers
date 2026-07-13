@@ -1,0 +1,369 @@
+/* ═══════════════════════════════════════════════════════════════
+   TransformacaoScene — a culminação da narrativa
+   Apenas tokens corrigidos para Hero — layout preservado.
+   ══════════════════════════════════════════════════════════════ */
+
+.scene {
+  color-scheme: light;
+  --ob:   #ffffff;
+  --osb:  #f8f9fb;
+  --obr:  #e5e7eb;
+  --obrl: #f3f4f6;
+  --obt:  #111827;
+  --obt2: #4b5563;
+  --obt3: #9ca3af;
+  --obl:  #1f93ff;
+  --obbt: #6d28d9;
+  --obg:  #059669;
+
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--obt);
+}
+
+/* ── Panel ───────────────────────────────────────────── */
+.panel {
+  border-radius: 12px;
+  border: 1px solid var(--obr);
+  background: var(--ob);
+  box-shadow:
+    0 4px 6px -1px rgba(0,0,0,0.07),
+    0 12px 40px -4px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(0,0,0,0.03);
+  overflow: hidden;
+}
+
+/* ── Status bar ──────────────────────────────────────── */
+.statusBar {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 16px;
+  background: var(--osb);
+  border-bottom: 1px solid var(--obr);
+  min-height: 48px;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.statusText {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--obt);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotRed   { background: #EF4444; animation: blink 1s ease-in-out infinite; }
+.dotBlue  { background: #0EA5E9; }
+.dotGreen { background: var(--obg); }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+
+.badgeRed {
+  color: #EF4444;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.badgeGreen {
+  color: var(--obg);
+  background: rgba(5, 150, 105, 0.12);
+  border: 1px solid rgba(5, 150, 105, 0.25);
+}
+
+.badgeIris {
+  color: var(--obbt);
+  background: rgba(109, 40, 217, 0.10);
+  border: 1px solid rgba(109, 40, 217, 0.22);
+}
+
+/* Status agents mini-avatars */
+.statusAgents {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 4px;
+}
+
+.iaSmall {
+  font-size: 0.7rem;
+  color: var(--obbt);
+  line-height: 1;
+}
+
+/* ── Conv list ───────────────────────────────────────── */
+.convList {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Conv row ────────────────────────────────────────── */
+.convRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.875rem 16px;
+  border-left: 3px solid transparent;
+  border-bottom: 1px solid var(--obrl);
+  transition: border-color 0.5s ease, background 0.5s ease;
+}
+
+.convRow:last-child {
+  border-bottom: none;
+}
+
+/* Row state colors */
+.rowCrit {
+  border-left-color: #EF4444;
+  background: rgba(239, 68, 68, 0.03);
+}
+.rowWarn {
+  border-left-color: #F59E0B;
+  background: rgba(245, 158, 11, 0.03);
+}
+.rowResolved {
+  border-left-color: var(--obg);
+  background: rgba(5, 150, 105, 0.04);
+}
+.rowHighlight {
+  border-left-color: var(--obg);
+  background: rgba(5, 150, 105, 0.07);
+}
+.rowResolvedIA {
+  border-left-color: var(--obbt);
+  background: rgba(109, 40, 217, 0.04);
+}
+.rowActive {
+  border-left-color: #0EA5E9;
+  background: rgba(14, 165, 233, 0.04);
+}
+
+/* Channel slot */
+.chSlot {
+  width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--ch) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ch) 28%, transparent);
+  color: var(--ch);
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+/* Client info */
+.convInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.convName {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--obt);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.convTopic {
+  font-size: 0.68rem;
+  color: var(--obt2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Status slot */
+.statusSlot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 200px;
+  flex-shrink: 0;
+}
+
+/* ── Status chips ────────────────────────────────────── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.chipCrit {
+  color: #EF4444;
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.18);
+}
+.chipWarn {
+  color: #D97706;
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.18);
+}
+.chipNeutral {
+  color: var(--obt3);
+  background: var(--osb);
+  border-color: var(--obr);
+}
+.chipBlue {
+  color: #0EA5E9;
+  background: rgba(14, 165, 233, 0.08);
+  border-color: rgba(14, 165, 233, 0.18);
+}
+.chipGreen {
+  color: var(--obg);
+  background: rgba(5, 150, 105, 0.10);
+  border-color: rgba(5, 150, 105, 0.22);
+  font-weight: 600;
+}
+.chipHighlight {
+  color: var(--obg);
+  background: rgba(5, 150, 105, 0.14);
+  border-color: rgba(5, 150, 105, 0.30);
+  font-weight: 700;
+}
+.chipIA {
+  color: var(--obbt);
+  background: rgba(109, 40, 217, 0.10);
+  border-color: rgba(109, 40, 217, 0.22);
+  font-weight: 600;
+}
+
+/* IA pulsing dot */
+.iaDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+  animation: ia-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes ia-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* Agent mini avatar inside chip */
+.agentMini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--av) 20%, transparent);
+  color: var(--av);
+  font-family: var(--font-mono);
+  font-size: 0.42rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ── KPI bar ─────────────────────────────────────────── */
+.kpiBar {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--obrl);
+  background: var(--osb);
+  overflow: hidden;
+}
+
+.kpiItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0.875rem 8px;
+}
+
+.kpiVal {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--obt);
+}
+
+.kpiLabel {
+  font-size: 0.6rem;
+  color: var(--obt2);
+  text-align: center;
+}
+
+.kpiSep {
+  width: 1px;
+  height: 28px;
+  background: var(--obrl);
+  flex-shrink: 0;
+}
+
+/* ── Closing line ────────────────────────────────────── */
+.closing {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--obt2);
+}
+
+.closing strong {
+  color: var(--obt);
+  font-weight: 600;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 640px) {
+  .statusSlot { min-width: 120px; }
+  .chip       { font-size: 0.65rem; padding: 0.22rem 0.5rem; }
+  .convRow    { padding: 0.75rem 12px; gap: 8px; }
+  .kpiItem    { padding: 0.75rem 4px; }
+  .kpiVal     { font-size: 0.9rem; }
+}

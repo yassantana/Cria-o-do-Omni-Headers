@@ -1,0 +1,86 @@
+.scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 460px;
+  margin-inline: auto;
+}
+.bubble {
+  position: absolute;
+  width: 190px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.6rem 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--danger);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  filter: grayscale(0.25);
+}
+.ch {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface-2);
+  opacity: 0.85;
+}
+.text {
+  flex: 1;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.25;
+}
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--danger);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 0 3px var(--bg);
+}
+.overload {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 96px;
+  height: 96px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  border-radius: 50%;
+  background: var(--danger-soft);
+  border: 1px dashed var(--danger);
+  color: var(--danger);
+  z-index: 3;
+}
+.overload span {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-2xl);
+  line-height: 1;
+}
+.overload small {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+@media (max-width: 480px) {
+  .bubble {
+    width: 160px;
+  }
+}

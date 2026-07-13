@@ -1,0 +1,352 @@
+/* ═══════════════════════════════════════════════════════════════
+   GestaoEquipeScene — painel de equipe ao vivo
+   Apenas tokens corrigidos para Hero — layout preservado.
+   ══════════════════════════════════════════════════════════════ */
+
+.scene {
+  color-scheme: light;
+  --ob:  #ffffff;
+  --osb: #f8f9fb;
+  --obr: #e5e7eb;
+  --obrl: #f3f4f6;
+  --obt:  #111827;
+  --obt2: #4b5563;
+  --obt3: #9ca3af;
+  --obl:  #1f93ff;
+  --obbt: #6d28d9;
+  --obg:  #059669;
+
+  width: 100%;
+  max-width: 800px;
+  margin-inline: auto;
+  border-radius: 12px;
+  border: 1px solid var(--obr);
+  background: var(--ob);
+  box-shadow:
+    0 4px 6px -1px rgba(0,0,0,0.07),
+    0 12px 40px -4px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(0,0,0,0.03);
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--obt);
+}
+
+/* ── Panel header ────────────────────────────────────── */
+.panelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0.75rem 16px;
+  background: var(--osb);
+  border-bottom: 1px solid var(--obr);
+  flex-wrap: wrap;
+}
+
+.panelLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panelTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--obt);
+}
+
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--obg);
+  padding: 0.15rem 0.45rem;
+  background: rgba(5, 150, 105, 0.1);
+  border-radius: 999px;
+}
+
+.live i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--obg);
+  animation: pulse-live 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* KPI strip */
+.kpiRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kpi {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 54px;
+}
+
+.kpiLabel {
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  color: var(--obt3);
+  white-space: nowrap;
+}
+
+.kpiDiv {
+  width: 1px;
+  height: 22px;
+  background: var(--obr);
+}
+
+/* ── LiveNum ──────────────────────────────────────────── */
+.liveNum {
+  display: inline-flex;
+  overflow: hidden;
+  height: 1.1em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--obt);
+  transition: color 0.4s;
+}
+
+.liveNumWarn {
+  color: #d97706;
+}
+
+/* Captain IA resolved count — purple */
+.liveNumAccent {
+  color: var(--obbt);
+}
+
+/* ── Table header ────────────────────────────────────── */
+.tableHead {
+  display: grid;
+  grid-template-columns: 1fr 80px 90px 70px 100px;
+  padding: 0.35rem 16px;
+  background: var(--osb);
+  border-bottom: 1px solid var(--obrl);
+}
+
+.thAgent {
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--obt3);
+}
+
+.th {
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--obt3);
+  text-align: center;
+}
+
+.thBadge {
+  /* empty col */
+}
+
+/* ── Table body ──────────────────────────────────────── */
+.tableBody {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Agent row ───────────────────────────────────────── */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 80px 90px 70px 100px;
+  align-items: center;
+  padding: 0.65rem 16px;
+  border-bottom: 1px solid var(--obrl);
+  transition: background 0.4s;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowWarn {
+  background: rgba(245, 158, 11, 0.05);
+}
+
+.rowFlash {
+  animation: flash-green 0.7s ease-out;
+}
+
+@keyframes flash-green {
+  0%   { background: rgba(5, 150, 105, 0.12); }
+  100% { background: transparent; }
+}
+
+/* Agent identity */
+.agent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.6rem;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.dot {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 2px solid var(--ob);
+}
+
+.dotOnline { background: var(--obg); }
+.dotPausa  { background: var(--obt3); }
+
+.agentInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.agentName {
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: var(--obt);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agentRole {
+  font-size: 0.56rem;
+  color: var(--obt2);
+}
+
+/* Data cells */
+.cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.cellLabel {
+  font-family: var(--font-mono);
+  font-size: 0.46rem;
+  color: var(--obt3);
+}
+
+/* SLA cell */
+.slaCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  transition: background 0.4s;
+}
+
+.slaGood { background: rgba(5, 150, 105, 0.08); }
+.slaWarn { background: rgba(245, 158, 11, 0.10); }
+.slaBad  { background: rgba(239, 68, 68, 0.10); }
+
+/* Badge col */
+.badgeCell {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #d97706;
+  padding: 0.18rem 0.5rem;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ── Captain IA row ──────────────────────────────────── */
+.iaRow {
+  display: grid;
+  grid-template-columns: 1fr 80px 90px 70px 100px;
+  align-items: center;
+  padding: 0.65rem 16px;
+  background: rgba(109, 40, 217, 0.04);
+}
+
+/* IA avatar — Hero IA style: lavender bg, purple glyph */
+.iaAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: #ede9fe;
+  color: var(--obbt);
+  font-size: 1.1rem;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.iaBadge {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: var(--obbt);
+  padding: 0.18rem 0.5rem;
+  background: rgba(109, 40, 217, 0.1);
+  border-radius: 999px;
+  white-space: nowrap;
+  justify-self: flex-end;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 680px) {
+  .tableHead,
+  .row,
+  .iaRow {
+    grid-template-columns: 1fr 60px 72px 56px 80px;
+    padding-inline: 12px;
+  }
+  .panelHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-inline: 12px;
+  }
+  .kpiRow { gap: 8px; }
+  .kpi    { min-width: 44px; }
+}

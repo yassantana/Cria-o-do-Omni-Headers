@@ -1,0 +1,107 @@
+.channels {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-16);
+}
+.channel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition:
+    transform var(--t-base),
+    border-color var(--t-base);
+}
+.channel:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+}
+.glyph {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+}
+.chName {
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+.chTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  color: var(--success);
+}
+
+.integrations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-10);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background-image: var(--grad-surface);
+}
+.intTitle {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  margin-bottom: var(--space-3);
+}
+.intSub {
+  color: var(--text-muted);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-6);
+  max-width: 40ch;
+}
+.cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+}
+.cat :global(svg) {
+  color: var(--brand-600);
+}
+.intVisual {
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 920px) {
+  .channels {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .integrations {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    padding: var(--space-6);
+  }
+  .intVisual {
+    order: -1;
+  }
+}
+@media (max-width: 460px) {
+  .channels {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

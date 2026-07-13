@@ -1,0 +1,99 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-weight: var(--font-semibold);
+  white-space: nowrap;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition:
+    transform var(--t-fast),
+    box-shadow var(--t-base),
+    background var(--t-base),
+    border-color var(--t-base),
+    color var(--t-base);
+  border: 1px solid transparent;
+}
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+.icon {
+  display: inline-flex;
+  align-items: center;
+}
+.full {
+  width: 100%;
+}
+
+/* Tamanhos */
+.sm {
+  font-size: var(--text-sm);
+  padding: 0.5rem 1rem;
+}
+.md {
+  font-size: var(--text-sm);
+  padding: 0.7rem 1.3rem;
+}
+.lg {
+  font-size: var(--text-base);
+  padding: 0.95rem 1.7rem;
+}
+
+/* Primario — gradiente assinatura + glow */
+.primary {
+  color: var(--text-on-brand);
+  background-image: var(--grad-brand);
+  background-size: 140% 140%;
+  background-position: 0% 50%;
+  box-shadow: var(--glow-brand);
+}
+.primary:hover {
+  background-position: 100% 50%;
+  transform: translateY(-2px);
+  box-shadow: 0 22px 60px rgba(19, 102, 224, 0.4);
+}
+
+/* Secundario — branco com contorno */
+.secondary {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+}
+.secondary:hover {
+  border-color: var(--brand-400);
+  background: var(--brand-50);
+  color: var(--brand-700);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Ghost — texto */
+.ghost {
+  color: var(--text-muted);
+  background: transparent;
+}
+.ghost:hover {
+  color: var(--brand-600);
+  background: var(--brand-50);
+}
+
+/* WhatsApp */
+.whatsapp {
+  color: #04210f;
+  background: var(--ch-whatsapp);
+  font-weight: var(--font-bold);
+}
+.whatsapp:hover {
+  filter: brightness(1.07);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px rgba(37, 211, 102, 0.32);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover {
+    transform: none;
+  }
+}
